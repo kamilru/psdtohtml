@@ -1,0 +1,256 @@
+//Variables
+$h2-margin-desktop: 0 0 15px 0;
+$h2-margin-mobile: 0 0 10px 0;
+$h2-font-size: 2rem;
+$h3-margin-desktop: 0 0 25px 0;
+$h3-margin-mobile: 0 0 15px 0;
+$h3-font-size: 1.5rem;
+$h4-margin-desktop: 0 0 10px 0;
+$h4-margin-mobile: 0 0 5px 0;
+$p-margin-desktop: 0 0 40px 0;
+$p-margin-mobile: 0 0 20px 0;
+$navbar-height: 85px;
+$navbar-desktop-padding: 22px 5px 20px 5px;
+$navbar-mobile-padding: 12px 5px 10px 5px;
+$navbar-color: #ffffff;
+$header-color: #215398;
+$section-desktop-padding: 50px 5px;
+$section-mobile-padding: 20px 5px;
+$dot-size: 30px;
+$dot-color: #ff3859;
+$first-section-color: #f5f5f5; 
+$box-color: #ffffff;
+$box-padding: 35px 35px;
+$box-margin: 10px 10px;
+$box-width: 260px;
+$box-paragraph-font-size: 0.75rem;
+$box-icon-size: 45px;
+$box-icon-margin: 15px auto;
+$box-paragraph-margin: 0;
+$carousel-arrow-size: auto;
+$carousel-prev-arrow-position: -55px;
+$carousel-next-arrow-position: -55px;
+
+//Fonts import 
+ @font-face {
+    font-family: 'rubiklight';
+    src: url('./fonts/rubik-light.eot');
+    src: url('./fonts/rubik-light.eot?#iefix') format('embedded-opentype');
+    src: url('./fonts/rubik-light.woff2') format('woff2');
+    src: url('./fonts/rubik-light.woff') format('woff');
+
+}
+
+@font-face {
+    font-family: 'rubikregular';
+    src: url('./fonts/rubik-regular.eot');
+    src: url('./fonts/rubik-regular.eot?#iefix') format('embedded-opentype');
+    src: url('./fonts/rubik-regular.woff2') format('woff2');
+    src: url('./fonts/rubik-regular.woff') format('woff');
+
+}
+
+//Fonts name
+%font-style1 {
+    font-family: 'rubikregular';
+    font-weight: normal;
+}
+
+%font-style2 {
+    font-family: 'rubiklight';
+    font-weight: normal;
+}
+
+//Global Settings
+body, html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-size: 20px;
+    color: #929495;
+    width: 100%;
+    overflow-x: hidden;
+    
+    @extend %font-style2;
+}
+
+h2, h3, h4 {
+    @extend %font-style1;
+    color: #2d3236;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: $h2-font-size;
+    margin: $h2-margin-desktop;
+    
+    @media only screen and (max-width: 768px) {
+        margin: $h2-margin-mobile;
+    }
+}
+
+h3 {
+    font-size: $h3-font-size;
+    margin: $h3-margin-desktop;
+    
+    @media only screen and (max-width: 768px) {
+        margin: $h3-margin-mobile;
+    }
+}
+
+h4 {
+    font-size: 1rem;
+    margin: $h4-margin-desktop;
+    
+    @media only screen and (max-width: 768px) {
+        margin: $h4-margin-mobile;
+    }
+}
+
+p {
+    margin: $p-margin-desktop;
+    line-height: 1.5;
+    
+    @media only screen and (max-width: 768px) {
+        margin: $p-margin-mobile;
+    }
+}
+
+//Start custom classes
+.container {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+//Start custom styles 
+.navbar {
+    max-height: $navbar-height;
+    display: block;
+    padding: $navbar-desktop-padding;
+    background-color: $navbar-color;
+    
+    @media only screen and (max-width: 768px) {
+        padding: $navbar-mobile-padding;
+    }
+}
+
+.headerContainer {
+    position: relative;
+    background-color: $header-color;
+    padding: $section-desktop-padding;
+    
+    @media only screen and (max-width: 768px) {
+        padding: $section-mobile-padding; 
+    }
+    
+    &:after {
+        content: "";
+        position: absolute;
+        width: $dot-size;
+        height: $dot-size;
+        background-color: $dot-color;
+        border-radius: 50%;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+    }
+    
+}
+
+.sectionFirst {
+    background-color: $first-section-color;
+    padding: $section-desktop-padding;
+    text-align: center;
+    
+    @media only screen and (max-width: 768px) {
+        padding: $section-mobile-padding; 
+    }
+    
+}
+
+.boxWrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: $box-width;
+    padding: $box-padding;
+    background-color: $box-color;
+    margin: $box-margin;
+    position: relative;
+    text-align: center;
+    
+    p {
+        @extend %font-style1;
+        font-size: $box-paragraph-font-size;
+        margin: $box-paragraph-margin;
+        word-break: break-all;
+        width: 100%; //fix for IE 
+    }
+    
+    img {
+        max-height: $box-icon-size;
+        max-width: $box-icon-size;
+        margin: $box-icon-margin;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+
+//Carousel settings
+.slider {
+    max-width: 1050px;
+    margin: auto;
+    
+    .slick-prev {
+        width: $carousel-arrow-size;
+        height: $carousel-arrow-size;
+        left: $carousel-prev-arrow-position;
+        
+        &:before {
+            content: url("../images/arrow-left.png");
+            margin-right: 30px;
+            font-size: inherit;
+        }
+    }
+    
+    .slick-next {
+        width: $carousel-arrow-size;
+        height: $carousel-arrow-size;
+        right: $carousel-next-arrow-position;
+        
+        &:before {
+            content: url(../images/arrow-right.png);
+            margin-left: 30px;
+            font-size: inherit;
+        }
+    }
+    .slick-track {
+    display: flex;
+    
+        .slick-slide {
+            display: flex;
+            height: auto;
+        }
+    }
+}
+
+//media for Retina display
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+
+}
